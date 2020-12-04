@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ContactListXamarin.Views.AddPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Nombre" />
+            <Entry Placeholder="Número" Keyboard="Telephone"/>
+            <Button Text="Agregar" Command="{Binding AddCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
