@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ContactListXamarin.Models
 {
-    class Contact : INotifyPropertyChanged
+    public class Contact : INotifyPropertyChanged
     {
         String nameVar, phoneVar;
         public String Name { 

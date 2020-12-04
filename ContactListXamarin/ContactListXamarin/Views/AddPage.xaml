@@ -4,8 +4,8 @@
              x:Class="ContactListXamarin.Views.AddPage">
     <ContentPage.Content>
         <StackLayout>
-            <Entry Placeholder="Nombre" />
-            <Entry Placeholder="Número" Keyboard="Telephone"/>
+            <Entry Placeholder="Nombre" Text="{Binding Name}"/>
+            <Entry Placeholder="Número" Keyboard="Telephone" Text="{Binding Phone}"/>
             <Button Text="Agregar" Command="{Binding AddCommand}"/>
         </StackLayout>
     </ContentPage.Content>
