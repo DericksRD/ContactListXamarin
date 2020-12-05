@@ -1,27 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ContactListXamarin.ListPage">
+             x:Class="ContactListXamarin.ListPage"
+             x:Name="MainPage">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddCommand}" />
     </ContentPage.ToolbarItems>
-    <ScrollView>
-       <ListView ItemsSource="{Binding ContactList}">
-           <ListView.ItemTemplate>
-               <DataTemplate>
-                   <TextCell 
+    <ListView ItemsSource="{Binding ContactList}" x:Name="ListView">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell 
                        Text="{Binding Name}"
                        Detail="{Binding Phone}" >
-                       
-                       <!--The TextCell item takes the binding of 
+
+                    <!--The TextCell item takes the binding of 
                            his father ListView, which means that you can 
                            directly use atributtes from Contact class, because you
                            have acces to the type of your list. -->
-                   </TextCell>
-               </DataTemplate>
-           </ListView.ItemTemplate>
-       </ListView>
-    </ScrollView>
+                    <TextCell.ContextActions>
+                        <MenuItem Text="Eliminar" 
+                                  Command="{Binding BindingContext.DeleteCommand, Source={x:Reference MainPage}}" 
+                                  CommandParameter="{Binding .}"
+                                  IsDestructive="True"/>
+                        <MenuItem Text="Opciones" Command="{Binding OptionsCommand}" />
+                    </TextCell.ContextActions>
+                </TextCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 
 </ContentPage>
