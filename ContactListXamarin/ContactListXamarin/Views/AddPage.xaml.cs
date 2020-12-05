@@ -20,5 +20,11 @@ namespace ContactListXamarin.Views
             InitializeComponent();
             BindingContext = new AddViewModel(list);
         }
+
+        public AddPage(ObservableCollection<Contact> list, Contact editableContact)
+        {
+            InitializeComponent();
+            BindingContext = new AddViewModel(list, editableContact);
+        }
     }
 }

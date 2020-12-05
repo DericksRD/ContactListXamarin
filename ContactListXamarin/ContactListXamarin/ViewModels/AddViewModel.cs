@@ -21,6 +21,20 @@ namespace ContactListXamarin.ViewModels
             AddList = list;
         }
 
+        public AddViewModel(ObservableCollection<Contact> list, Contact editableContact)
+        {
+            AddList = list;
+            Name = editableContact.Name;
+            Phone = editableContact.Phone;
+
+            AddList.Remove(editableContact);
+            /*
+             * At the end i will create a new contact based on the information
+             * of the editable contact, so i can delete now cause it will create
+             * a new version of it.
+             */
+        }
+
         public async void AddButton()
         {
             AddList.Add(NewContact);

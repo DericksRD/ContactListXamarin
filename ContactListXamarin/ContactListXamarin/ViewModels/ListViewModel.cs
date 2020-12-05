@@ -35,5 +35,26 @@ namespace ContactListXamarin.ViewModels
                 ContactList.Remove((Contact)contact);
 
         }
+
+        public ICommand OptionsCommand => new Command(OptionClicked);
+
+        private async void OptionClicked(object contact)
+        {
+            Contact selectedContact = (Contact)contact;
+            String option = await App.Current.MainPage.DisplayActionSheet("Presione la opción que desea ejecutar:",
+                                                                          "Cancelar", null,
+                                                                          $"Llamar a {selectedContact.Phone}",
+                                                                          "Editar");
+
+            if(option == $"Llamar a {selectedContact.Phone}")
+            {
+                //Call the number:
+            }
+            else if(option == "Editar")
+            {
+                //Edit:
+                await App.Current.MainPage.Navigation.PushModalAsync(new AddPage(ContactList, selectedContact));
+            }
+        }
     }
 }

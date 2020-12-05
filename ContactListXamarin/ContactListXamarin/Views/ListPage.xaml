@@ -23,7 +23,9 @@
                                   Command="{Binding BindingContext.DeleteCommand, Source={x:Reference MainPage}}" 
                                   CommandParameter="{Binding .}"
                                   IsDestructive="True"/>
-                        <MenuItem Text="Opciones" Command="{Binding OptionsCommand}" />
+                        <MenuItem Text="Opciones" 
+                                  Command="{Binding BindingContext.OptionsCommand, Source={x:Reference MainPage}}"
+                                  CommandParameter="{Binding .}"/>
                     </TextCell.ContextActions>
                 </TextCell>
             </DataTemplate>
