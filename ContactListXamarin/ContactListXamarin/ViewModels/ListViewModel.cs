@@ -1,5 +1,6 @@
 ﻿using ContactListXamarin.Models;
 using ContactListXamarin.Views;
+using Xamarin.Essentials;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -49,6 +50,7 @@ namespace ContactListXamarin.ViewModels
             if(option == $"Llamar a {selectedContact.Phone}")
             {
                 //Call the number:
+                PhoneDialer.Open(selectedContact.Phone); 
             }
             else if(option == "Editar")
             {
